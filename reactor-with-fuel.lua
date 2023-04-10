@@ -75,7 +75,7 @@ local function update_data()
 		reactor_damage = reactor.getDamagePercent(),
 		reactor_coolant = reactor.getCoolantFilledPercentage(),
 		reactor_waste = reactor.getWasteFilledPercentage(),
-    reactor_waste = reactor.getWasteFilledPercentage(),
+    		reactor_fuel = reactor.getFuelFilledPercentage(),
     
 		turbine_energy = turbine.getEnergyFilledPercentage(),
 	}
@@ -233,7 +233,7 @@ term.setPaletteColor(colors.blue, 0x01a0e4)
 term.clear()
 local width = term.getSize()
 info_window = make_section("INFORMATION", 2, 2, width - 2, 7)
-rules_window = make_section("SAFETY RULES", 2, 10, width - 2, 9)
+rules_window = make_section("SAFETY RULES", 2, 10, width - 2, 10)
 
 parallel.waitForAny(main_loop, function()
 	os.pullEventRaw("terminate")
