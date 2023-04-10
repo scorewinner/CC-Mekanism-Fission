@@ -13,7 +13,7 @@ Credit for the script goes to [@InternetUnexplorer](https://gist.github.com/Inte
 5. If you have Monitors connected, start the Program like this: ``` monitor monitor_1 reactor.lua ``` (If the Monitors are adjasoned to the Computer, you can use ``` monitor left/right/top/bottom/back reactor.lua``` depending on where the Monitors are positioned, use the correct direction)
 6. Place a Lever on top of the Computer and flick it to start the program
 
-## Disabling Turbine Monitoring
+## Disabling Turbine Monitoring 
 If you want to remove the Turbine from the Monitoring, you will need to remove a couple lines of code
 
 1. Open the Program with ```edit reactor.lua```
@@ -61,3 +61,7 @@ Just Below this line (roughly on line 73):
 ```
 reactor_waste = reactor.getWasteFilledPercentage(),
 ```
+
+
+### edit:
+I've added the modified Programs to this repo, you can also use these directly, be sure to copy the code to the RAW FILE
