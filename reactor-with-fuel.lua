@@ -42,7 +42,7 @@ add_rule("REACTOR WASTE LEVEL   <=  90%", function()
 	return data.reactor_waste <= 0.90, value
 end)
 
-add_rule("REACTOR FUEL LEVEL  >=  10%", function()
+add_rule("REACTOR FUEL LEVEL    >=  10%", function()
 	local value = string.format("%3d%%", math.ceil(data.reactor_fuel * 100))
 	return data.reactor_fuel >= 0.10, value
 end)
