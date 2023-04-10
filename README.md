@@ -65,3 +65,9 @@ reactor_waste = reactor.getWasteFilledPercentage(),
 
 ### edit:
 I've added the modified Programs to this repo, you can also use these directly, be sure to copy the code to the RAW FILE
+
+## Images
+
+![Screenshot 2023-04-10 215928](https://user-images.githubusercontent.com/19328039/231000435-70f41249-62fe-4f84-a10a-4778e942248a.png)
+
+
