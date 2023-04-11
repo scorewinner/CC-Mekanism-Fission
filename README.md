@@ -58,7 +58,7 @@ add_rule("TURBINE ENERGY LEVEL  <=  95%", function()
 	return data.turbine_energy <= 0.95, value
 end)
 ```
-Add these lines as well:
+Add this line as well:
 ```
 reactor_fuel = reactor.getFuelFilledPercentage(),
 ```
@@ -69,9 +69,32 @@ reactor_waste = reactor.getWasteFilledPercentage(),
 
 ## Add Redstone Output if the Reactor has stopped
 In some cases, you may want to have a redstone signal if the reactor has stopped, this is fairly easy to achieve:
-
+1. Open the Program with ```edit reactor.lua```
+2. Add these lines of code:
 ```
-coming very soon...
+redstone.setOutput("left", true)
+```
+inside this code block, just below `pcall(reactor.scram)` (roughly on line 207):
+```
+-- SCRAM reactor if not running
+if state ~= STATES.RUNNING and reactor then
+	pcall(reactor.scram)
+end
+```
+now, the computer outputs a redstone signal out of its left side as soon as the reactor gets shut down by the program
+
+you'll also need to add this line to disable the signal again
+```
+redstone.setOutput("left", false)
+```
+inside this code block, just below `pcall(reactor.activate)` (roughly on line 188):
+```
+elseif state == STATES.READY and data.lever_on then
+	-- READY -> RUNNING
+	state = STATES.RUNNING
+	-- Activate reactor
+	pcall(reactor.activate)
+	data.reactor_on = true
 ```
 
 
