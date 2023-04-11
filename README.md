@@ -13,7 +13,7 @@ I've added the modified Programs to this repo, you can also use these directly i
 3. Right click on all Modems. You should get a message in chat that the devices are now on the network
 4. open the Computer and type ```wget https://gist.githubusercontent.com/InternetUnexplorer/ea13f1713d325b914126bcfb9b35e6fd/raw/22178936686a875601f31741d6b2de385d3aa86f/reactor.lua ``` 
 5. If you have Monitors connected, start the Program like this: ``` monitor monitor_1 reactor.lua ``` (If the Monitors are adjasoned to the Computer, you can use ``` monitor left/right/top/bottom/back reactor.lua``` depending on where the Monitors are positioned, use the correct direction)
-6. Place a Lever on top of the Computer and flick it to start the program
+6. Place a Lever on top of the Computer and flick it to start monitoring your reactor and turbine
 
 ## Disabling Turbine Monitoring 
 You may want to remove the turbine monitoring from the script if you don't have a turbine or maybe you have the turbine set to "dump excess steam" or something.
