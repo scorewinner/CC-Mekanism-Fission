@@ -2,7 +2,7 @@
 Computercraft script to control Fission Reactors from Mekanism
 
 
-Credit for the script goes to [@InternetUnexplorer](https://gist.github.com/InternetUnexplorer)
+Credit for the original script goes to [@InternetUnexplorer](https://gist.github.com/InternetUnexplorer)
 
 
 ## Setting up
