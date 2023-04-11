@@ -2,7 +2,9 @@
 Computercraft script to control Fission Reactors from Mekanism
 
 
-Credit for the original script goes to [@InternetUnexplorer](https://gist.github.com/InternetUnexplorer)
+Credit for the original script goes to [@InternetUnexplorer](https://github.com/InternetUnexplorer) 
+
+I've added the modified Programs to this repo, you can also use these directly instead of editing it yourself, be sure to copy the link to the RAW FILE!
 
 
 ## Setting up
@@ -14,6 +16,7 @@ Credit for the original script goes to [@InternetUnexplorer](https://gist.github
 6. Place a Lever on top of the Computer and flick it to start the program
 
 ## Disabling Turbine Monitoring 
+You may want to remove the turbine monitoring from the script if you don't have a turbine or maybe you have the turbine set to "dump excess steam" or something.
 If you want to remove the Turbine from the Monitoring, you will need to remove a couple lines of code
 
 1. Open the Program with ```edit reactor.lua```
@@ -37,6 +40,8 @@ state = STATES.UNKNOWN
 ```
 
 ## Add Fuel Level Monitoring to the Program
+In case you want to add the fuel level as a shutdown requirement as well. Note that by default the reactor will stop anyway if it has no fuel. I've just added the option to stop it, if the fuel level drops below 10%.
+
 Here too, you will need to edit the Program a bit
 1. Open the Program with ```edit reactor.lua```
 2. Add these lines of code:
@@ -62,9 +67,13 @@ Just Below this line (roughly on line 73):
 reactor_waste = reactor.getWasteFilledPercentage(),
 ```
 
+## Add Redstone Output if the Reactor has stopped
+In some cases, you may want to have a redstone signal if the reactor has stopped, this is fairly easy to achieve:
 
-### edit:
-I've added the modified Programs to this repo, you can also use these directly, be sure to copy the code to the RAW FILE
+```
+coming very soon...
+```
+
 
 ## Images
 
