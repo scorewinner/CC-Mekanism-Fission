@@ -73,29 +73,25 @@ In some cases, you may want to have a redstone signal if the reactor has stopped
 2. Add these lines of code:
 ```
 redstone.setOutput("left", true)
-```
-inside this code block, just below `pcall(reactor.scram)` (roughly on line 207):
-```
--- SCRAM reactor if not running
-if state ~= STATES.RUNNING and reactor then
-	pcall(reactor.scram)
-end
-```
-now, the computer outputs a redstone signal out of its left side as soon as the reactor gets shut down by the program
-
-you'll also need to add this line to disable the signal again
-```
 redstone.setOutput("left", false)
 ```
-inside this code block, just below `pcall(reactor.activate)` (roughly on line 188):
+inside this code block like this (roughly on line 124):
 ```
-elseif state == STATES.READY and data.lever_on then
-	-- READY -> RUNNING
-	state = STATES.RUNNING
-	-- Activate reactor
-	pcall(reactor.activate)
-	data.reactor_on = true
+if state == STATES.READY then
+	colored("READY, flip lever to start", colors.blue)
+	redstone.setOutput("left", false)
+elseif state == STATES.RUNNING then
+	colored("RUNNING, flip lever to stop", colors.green)
+	redstone.setOutput("left", false)
+elseif state == STATES.ESTOP and not all_rules_met() then
+	colored("EMERGENCY STOP, safety rules violated", colors.red)
+	redstone.setOutput("left", true)
+elseif state == STATES.ESTOP then
+	colored("EMERGENCY STOP, toggle lever to reset", colors.red)
+	redstone.setOutput("left", true)
+end -- STATES.UNKNOWN cases handled above
 ```
+now, the computer outputs a redstone signal out of its left side as soon as the reactor gets shut down automatically by the program
 
 
 ## Images
