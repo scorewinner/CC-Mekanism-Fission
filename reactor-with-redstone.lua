@@ -121,12 +121,16 @@ local function update_info()
 	colored("STATUS: ")
 	if state == STATES.READY then
 		colored("READY, flip lever to start", colors.blue)
+		redstone.setOutput("left", false)
 	elseif state == STATES.RUNNING then
 		colored("RUNNING, flip lever to stop", colors.green)
+		redstone.setOutput("left", false)
 	elseif state == STATES.ESTOP and not all_rules_met() then
 		colored("EMERGENCY STOP, safety rules violated", colors.red)
+		redstone.setOutput("left", true)
 	elseif state == STATES.ESTOP then
 		colored("EMERGENCY STOP, toggle lever to reset", colors.red)
+		redstone.setOutput("left", true)
 	end -- STATES.UNKNOWN cases handled above
 
 	term.redirect(prev_term)
@@ -186,7 +190,6 @@ local function main_loop()
 		state = STATES.RUNNING
 		-- Activate reactor
 		pcall(reactor.activate)
-    redstone.setOutput("left", false)
 		data.reactor_on = true
 	elseif state == STATES.RUNNING and not data.lever_on then
 		-- RUNNING -> READY
@@ -208,7 +211,6 @@ local function main_loop()
 	-- SCRAM reactor if not running
 	if state ~= STATES.RUNNING and reactor then
 		pcall(reactor.scram)
-    redstone.setOutput("left", true)
 	end
 
 	-- Update info and rules windows
